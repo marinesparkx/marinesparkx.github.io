@@ -1,43 +1,91 @@
-# Astro Starter Kit: Minimal
+# Marine Spark X — Landing Page
 
-```sh
-npm create astro@latest -- --template minimal
+Landing page for [Marine Spark X](https://www.marinesparkx.com), built with Astro + Tailwind CSS.
+
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/fork/github/marinesparkx/landing)
+
+## Stack
+
+- **Framework**: [Astro](https://astro.build) (static, zero JS by default)
+- **Styling**: [Tailwind CSS v4](https://tailwindcss.com)
+- **Icons**: [astro-icon](https://github.com/natemoo-re/astro-icon) + Lucide / MDI
+- **Analytics**: [Umami Cloud](https://cloud.umami.is) (free, cookieless, GDPR-compliant)
+- **Hosting**: GitHub Pages (auto-deploy on push to `main`)
+
+## Edit in Browser
+
+No local dev setup needed. Open in StackBlitz or bolt.new:
+
+- **StackBlitz**: [stackblitz.com/fork/github/marinesparkx/landing](https://stackblitz.com/fork/github/marinesparkx/landing)
+- **bolt.new**: [bolt.new/github.com/marinesparkx/landing](https://bolt.new/github.com/marinesparkx/landing)
+- **Quick file edit**: Replace `github.com` with `pr.new` in any file URL to edit and submit a PR
+
+Push to `main` and the site auto-deploys via GitHub Actions.
+
+## Local Development
+
+```bash
+npm install
+npm run dev        # http://localhost:4321
+npm run build      # Build to dist/
+npm run preview    # Preview built site
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+**Format & check:**
+```bash
+npx prettier --write "src/**/*.{astro,css,js,mjs}"
+npx astro check
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Deploy (GitHub Pages)
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+Handled automatically by `.github/workflows/deploy.yml` on push to `main`.
 
-Any static assets, like images, can be placed in the `public/` directory.
+**Setup (one-time):**
+1. Go to repo **Settings > Pages**
+2. Set **Source** to **GitHub Actions**
+3. Push to `main`
 
-## 🧞 Commands
+**Custom domain:**
+1. Add domain in repo Settings > Pages > Custom domain
+2. Update `site` in `astro.config.mjs`
+3. DNS: CNAME record pointing to `<username>.github.io`
 
-All commands are run from the root of the project, from a terminal:
+## Analytics (Umami)
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+Using [Umami Cloud](https://cloud.umami.is) free tier (100K events/month, 3 websites, EU data region).
 
-## 👀 Want to learn more?
+**Setup:**
+1. Sign up at [cloud.umami.is/signup](https://cloud.umami.is/signup)
+2. Select EU data region
+3. Add website, copy the `data-website-id`
+4. Update the script tag in `src/pages/index.astro` `<head>`:
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+```html
+<script
+  defer
+  src="https://cloud.umami.is/script.js"
+  data-website-id="YOUR-ID-HERE"
+  data-domains="marinesparkx.com,www.marinesparkx.com"
+></script>
+```
+
+**Track button clicks** by adding `data-umami-event` to any element:
+```html
+<a href="#contact" data-umami-event="CTA Get Involved">Get involved</a>
+```
+
+No cookies. No consent banner needed. `data-domains` prevents tracking on localhost/staging.
+
+## Project Structure
+
+```
+src/
+  assets/images/   # Optimized images (processed by Astro)
+  pages/
+    index.astro    # Landing page
+  styles/
+    global.css     # Tailwind + custom theme
+public/            # Static assets (favicon, CNAME)
+astro.config.mjs   # Astro + Tailwind + astro-icon config
+```

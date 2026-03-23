@@ -1,17 +1,872 @@
 ---
+import "../styles/global.css";
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+import logo from "../assets/images/logo.png";
+import heroImg from "../assets/images/hero-underwater.jpeg";
+import seaUrchin from "../assets/images/sea-urchin.png";
+import fishCod from "../assets/images/fish-cod.jpg";
+import kelpDiver from "../assets/images/kelp-diver.jpeg";
+import oceanSurface from "../assets/images/ocean-surface.jpeg";
+import urchinMeal from "../assets/images/urchin-meal-product.png";
+import teamJohan from "../assets/images/team-johan.jpg";
+import teamMartin from "../assets/images/team-martin.jpg";
+import teamElias from "../assets/images/team-elias.jpg";
+import teamGustav from "../assets/images/team-gustav.png";
+import teamMaria from "../assets/images/team-maria.jpg";
+import teamPauline from "../assets/images/team-pauline.jpg";
 
+const umamiId = import.meta.env.PUBLIC_UMAMI_ID;
+
+const team = [
+  {
+    name: "Johan Armstrong Støver",
+    role: "CEO",
+    email: "johan@marinesparkx.com",
+    img: teamJohan,
+  },
+  {
+    name: "Martin Oddekalv",
+    role: "COO",
+    email: "martin@marinesparkx.com",
+    img: teamMartin,
+  },
+  {
+    name: "Elias Nyheim Såstad Solberg",
+    role: "CFO",
+    email: "elias@marinesparkx.com",
+    img: teamElias,
+  },
+  {
+    name: "Gustav Vestlie",
+    role: "CSO",
+    email: "gustav@marinesparkx.com",
+    img: teamGustav,
+  },
+  {
+    name: "Maria Davidsen",
+    role: "CIO",
+    email: "maria@marinesparkx.com",
+    img: teamMaria,
+  },
+  {
+    name: "Pauline Hanss-Mazzeï",
+    role: "Research Assistant",
+    email: "",
+    img: teamPauline,
+  },
+];
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Marine Spark X — Turning invasive sea urchins into sustainable nutritional supplements for aquaculture. Restoring kelp forests along the Norwegian coast."
+    />
+    <meta property="og:title" content="Marine Spark X" />
+    <meta
+      property="og:description"
+      content="Sustainable nutritional supplements from sea urchins. Restoring kelp forests along the Norwegian coast."
+    />
+    <meta property="og:image" content="https://marinesparkx.github.io/og-image.jpg" />
+    <meta property="og:url" content="https://marinesparkx.github.io" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <title>Marine Spark X — Revolutionizing Marine Resources</title>
+    {umamiId && (
+      <script
+        is:inline
+        defer
+        src="https://cloud.umami.is/script.js"
+        data-website-id={umamiId}
+        data-domains="marinesparkx.com,www.marinesparkx.com"
+      ></script>
+    )}
+  </head>
+
+  <body class="bg-ocean-950 text-ocean-100 font-body antialiased">
+    <!-- Navigation -->
+    <nav
+      class="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
+      id="nav"
+    >
+      <div
+        class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between"
+      >
+        <a href="/" class="block w-44">
+          <Image
+            src={logo}
+            alt="Marine Spark X"
+            class="w-full h-auto brightness-0 invert"
+          />
+        </a>
+        <div
+          class="hidden md:flex items-center gap-8 text-sm tracking-wide uppercase font-medium"
+        >
+          <a href="#story" class="hover:text-teal-300 transition-colors"
+            >Our Story</a
+          >
+          <a href="#product" class="hover:text-teal-300 transition-colors"
+            >Product</a
+          >
+          <a
+            href="#sustainability"
+            class="hover:text-teal-300 transition-colors">Sustainability</a
+          >
+          <a href="#team" class="hover:text-teal-300 transition-colors">Team</a>
+          <a
+            href="#contact"
+            class="px-5 py-2 border border-teal-400/50 rounded-sm hover:bg-teal-400/10 transition-all"
+            >Contact</a
+          >
+        </div>
+        <button
+          id="menu-toggle"
+          class="md:hidden text-ocean-100 p-2"
+          aria-label="Toggle menu"
+        >
+          <Icon name="lucide:menu" class="w-6 h-6" />
+        </button>
+      </div>
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden bg-ocean-950/95 backdrop-blur-md border-t border-ocean-800/50"
+      >
+        <div
+          class="px-6 py-6 flex flex-col gap-4 text-sm tracking-wide uppercase font-medium"
+        >
+          <a href="#story" class="hover:text-teal-300 transition-colors py-2"
+            >Our Story</a
+          >
+          <a href="#product" class="hover:text-teal-300 transition-colors py-2"
+            >Product</a
+          >
+          <a
+            href="#sustainability"
+            class="hover:text-teal-300 transition-colors py-2">Sustainability</a
+          >
+          <a href="#team" class="hover:text-teal-300 transition-colors py-2"
+            >Team</a
+          >
+          <a href="#contact" class="hover:text-teal-300 transition-colors py-2"
+            >Contact</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+    <section
+      class="relative min-h-screen flex items-center justify-center overflow-hidden"
+    >
+      <div class="absolute inset-0">
+        <Image
+          src={heroImg}
+          alt=""
+          class="w-full h-full object-cover scale-105"
+          widths={[768, 1024, 1440, 1920]}
+        />
+        <div
+          class="absolute inset-0 bg-gradient-to-b from-ocean-950/50 via-ocean-950/20 to-ocean-950"
+        >
+        </div>
+      </div>
+      <div class="relative z-10 text-center max-w-4xl mx-auto px-6">
+        <p
+          class="text-teal-300 font-body text-sm tracking-[0.3em] uppercase mb-6 animate-fade-up"
+          style="animation-delay: 0.2s"
+        >
+          Troms&oslash;, Norway
+        </p>
+        <h1
+          class="font-display text-5xl md:text-7xl lg:text-8xl font-300 leading-[0.95] mb-8 text-white animate-fade-up"
+          style="animation-delay: 0.4s"
+        >
+          Think Blue,<br />
+          <em class="text-teal-200">Think Green</em>
+        </h1>
+        <p
+          class="text-ocean-200 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-10 font-light animate-fade-up"
+          style="animation-delay: 0.6s"
+        >
+          Enhancing health &mdash; on the ocean&rsquo;s terms. Turning invasive
+          sea urchins into sustainable value for aquaculture.
+        </p>
+        <div
+          class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-up"
+          style="animation-delay: 0.8s"
+        >
+          <a
+            href="#story"
+            class="group inline-flex items-center gap-2 px-8 py-4 bg-teal-500/20 border border-teal-400/40 text-teal-100 rounded-sm hover:bg-teal-500/30 transition-all tracking-wider text-sm uppercase font-medium"
+          >
+            Discover More
+            <Icon
+              name="lucide:chevron-down"
+              class="w-4 h-4 transition-transform group-hover:translate-y-1"
+            />
+          </a>
+        </div>
+      </div>
+      <div
+        class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-ocean-950 to-transparent"
+      >
+      </div>
+    </section>
+
+    <!-- Stats bar -->
+    <section class="relative py-16 border-y border-ocean-800/30">
+      <div class="absolute inset-0 bg-ocean-900/30"></div>
+      <div class="relative max-w-6xl mx-auto px-6">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+          <div class="text-center reveal" style="transition-delay: 0s">
+            <p
+              class="font-display text-4xl md:text-5xl font-300 text-white mb-2"
+            >
+              80B+
+            </p>
+            <p class="text-ocean-400 text-sm tracking-wide">
+              Sea urchins along the Norwegian coast
+            </p>
+          </div>
+          <div class="text-center reveal" style="transition-delay: 0.1s">
+            <p
+              class="font-display text-4xl md:text-5xl font-300 text-white mb-2"
+            >
+              5,000
+            </p>
+            <p class="text-ocean-400 text-sm tracking-wide">
+              km&sup2; of kelp forest lost
+            </p>
+          </div>
+          <div class="text-center reveal" style="transition-delay: 0.2s">
+            <p
+              class="font-display text-4xl md:text-5xl font-300 text-white mb-2"
+            >
+              40%
+            </p>
+            <p class="text-ocean-400 text-sm tracking-wide">
+              Global kelp decline in recent decades
+            </p>
+          </div>
+          <div class="text-center reveal" style="transition-delay: 0.3s">
+            <p
+              class="font-display text-4xl md:text-5xl font-300 text-teal-300 mb-2"
+            >
+              1
+            </p>
+            <p class="text-ocean-400 text-sm tracking-wide">
+              Solution that restores and creates value
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Story -->
+    <section id="story" class="py-28 md:py-36 relative">
+      <div
+        class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--color-ocean-900)_0%,_var(--color-ocean-950)_70%)]"
+      >
+      </div>
+      <div class="relative max-w-7xl mx-auto px-6">
+        <div class="grid md:grid-cols-2 gap-16 md:gap-24 items-center">
+          <div class="reveal">
+            <p
+              class="text-teal-400 text-sm tracking-[0.3em] uppercase mb-4 font-medium"
+            >
+              Our Story
+            </p>
+            <h2
+              class="font-display text-4xl md:text-5xl font-300 text-white mb-8 leading-tight"
+            >
+              The story of the<br />kelp forest
+            </h2>
+            <p class="text-ocean-300 leading-relaxed mb-6">
+              Along the Norwegian coastline, over 80 billion sea urchins have
+              devastated kelp forests. Around 5,000 km&sup2; of kelp forest have
+              been lost, grazed down to barren marine deserts where vibrant
+              ecosystems once thrived.
+            </p>
+            <p class="text-ocean-300 leading-relaxed mb-6">
+              The kelp forests are one of the world&rsquo;s largest and most
+              important carbon sinks on earth, serving as marine habitat for
+              organisms and life along the coast. This is a major ecological
+              problem.
+            </p>
+            <p class="text-ocean-200 leading-relaxed font-medium">
+              However, where there are problems, solutions can often be found.
+              Marine Spark X aims to be part of the solution.
+            </p>
+          </div>
+          <div class="reveal relative" style="transition-delay: 0.15s">
+            <div class="aspect-[4/5] rounded-sm overflow-hidden">
+              <Image
+                src={seaUrchin}
+                alt="Sea urchin on rocky seabed along the Norwegian coast"
+                class="w-full h-full object-cover"
+                widths={[480, 768, 1024]}
+              />
+            </div>
+            <div
+              class="absolute -bottom-6 -left-6 w-32 h-32 border border-teal-500/20 rounded-sm -z-0"
+            >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Product -->
+    <section id="product" class="py-28 md:py-36 relative overflow-hidden">
+      <div class="absolute inset-0">
+        <Image
+          src={oceanSurface}
+          alt=""
+          class="w-full h-full object-cover opacity-10"
+        />
+        <div class="absolute inset-0 bg-ocean-950/85"></div>
+      </div>
+      <div class="relative max-w-7xl mx-auto px-6">
+        <div class="grid md:grid-cols-2 gap-16 md:gap-24 items-center">
+          <div class="reveal flex justify-center">
+            <div class="relative">
+              <Image
+                src={urchinMeal}
+                alt="UrchinEcoMeal product — fine powder supplement"
+                class="w-72 md:w-96 h-auto drop-shadow-2xl"
+                widths={[384, 480]}
+              />
+              <div
+                class="absolute -inset-8 bg-teal-500/5 rounded-full blur-3xl -z-10"
+              >
+              </div>
+            </div>
+          </div>
+          <div class="reveal" style="transition-delay: 0.15s">
+            <p
+              class="text-teal-400 text-sm tracking-[0.3em] uppercase mb-4 font-medium"
+            >
+              Product
+            </p>
+            <h2
+              class="font-display text-4xl md:text-5xl font-300 text-white mb-3 leading-tight"
+            >
+              UrchinEcoMeal
+            </h2>
+            <p class="text-teal-300/70 text-sm italic mb-8 font-display">
+              Enhancing health &mdash; on the ocean&rsquo;s terms
+            </p>
+            <p class="text-ocean-300 leading-relaxed mb-6">
+              UrchinEcoMeal is a natural and sustainable dietary supplement
+              developed from the green sea urchin (<em class="text-ocean-200"
+                >Strongylocentrotus droebachiensis</em
+              >). This product is rich in essential nutrients, including vital
+              vitamins and minerals, supporting a balanced and robust diet for
+              aquaculture.
+            </p>
+            <p class="text-ocean-300 leading-relaxed mb-8">
+              By utilizing green sea urchins, which naturally contain these
+              nutrients, UrchinEcoMeal provides a healthy and sustainable
+              supplement solution through advanced bioconversion technologies.
+            </p>
+            <a
+              href="#contact"
+              class="inline-flex items-center gap-2 text-teal-300 text-sm tracking-wider uppercase hover:text-teal-200 transition-colors group"
+            >
+              Contact for more information
+              <Icon
+                name="lucide:arrow-right"
+                class="w-4 h-4 transition-transform group-hover:translate-x-1"
+              />
+            </a>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8 mt-24 reveal">
+          <div
+            class="group p-8 bg-ocean-900/40 border border-ocean-800/40 rounded-sm hover:border-teal-500/30 transition-all duration-500"
+          >
+            <Icon
+              name="lucide:flask-conical"
+              class="w-8 h-8 mb-6 text-teal-400"
+            />
+            <h3 class="font-display text-xl text-white mb-3">Bioconversion</h3>
+            <p class="text-ocean-400 text-sm leading-relaxed">
+              Advanced bioconversion technology transforms sea urchins into
+              high-value nutritional compounds for aquaculture feed.
+            </p>
+          </div>
+          <div
+            class="group p-8 bg-ocean-900/40 border border-ocean-800/40 rounded-sm hover:border-teal-500/30 transition-all duration-500"
+          >
+            <Icon name="lucide:sun" class="w-8 h-8 mb-6 text-teal-400" />
+            <h3 class="font-display text-xl text-white mb-3">
+              Natural Carotenoids
+            </h3>
+            <p class="text-ocean-400 text-sm leading-relaxed">
+              Rich in natural carotenoids, essential minerals, and vitamins that
+              promote optimal health in farmed fish.
+            </p>
+          </div>
+          <div
+            class="group p-8 bg-ocean-900/40 border border-ocean-800/40 rounded-sm hover:border-teal-500/30 transition-all duration-500"
+          >
+            <Icon name="lucide:recycle" class="w-8 h-8 mb-6 text-teal-400" />
+            <h3 class="font-display text-xl text-white mb-3">
+              Circular Economy
+            </h3>
+            <p class="text-ocean-400 text-sm leading-relaxed">
+              Every sea urchin harvested helps restore kelp forests while
+              creating sustainable value for the aquaculture industry.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sustainability -->
+    <section id="sustainability" class="py-28 md:py-36 relative">
+      <div
+        class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_var(--color-ocean-900)_0%,_var(--color-ocean-950)_70%)]"
+      >
+      </div>
+      <div class="relative max-w-7xl mx-auto px-6">
+        <div class="text-center max-w-3xl mx-auto mb-20 reveal">
+          <p
+            class="text-teal-400 text-sm tracking-[0.3em] uppercase mb-4 font-medium"
+          >
+            Sustainability
+          </p>
+          <h2
+            class="font-display text-4xl md:text-5xl font-300 text-white mb-8 leading-tight"
+          >
+            Restoring the ocean&rsquo;s balance
+          </h2>
+          <p class="text-ocean-300 leading-relaxed">
+            Marine Spark X is committed to driving sustainable innovation,
+            reducing our environmental footprint, and contributing to healthier
+            marine ecosystems and thriving local communities.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8 lg:gap-12 reveal">
+          <div
+            class="group flex gap-6 p-8 bg-ocean-900/30 border border-ocean-800/30 rounded-sm hover:border-teal-500/20 transition-all duration-500"
+          >
+            <Icon
+              name="lucide:users"
+              class="w-6 h-6 text-teal-400 shrink-0 mt-1"
+            />
+            <div>
+              <h3 class="font-display text-xl text-white mb-2">
+                Strengthening Coastal Communities
+              </h3>
+              <p class="text-ocean-400 text-sm leading-relaxed">
+                Creating sustainable solutions that generate local jobs and
+                foster social responsibility, contributing to vibrant and
+                resilient coastal societies.
+              </p>
+            </div>
+          </div>
+          <div
+            class="group flex gap-6 p-8 bg-ocean-900/30 border border-ocean-800/30 rounded-sm hover:border-teal-500/20 transition-all duration-500"
+          >
+            <Icon
+              name="lucide:globe"
+              class="w-6 h-6 text-teal-400 shrink-0 mt-1"
+            />
+            <div>
+              <h3 class="font-display text-xl text-white mb-2">
+                Protecting Marine Ecosystems
+              </h3>
+              <p class="text-ocean-400 text-sm leading-relaxed">
+                Implementing circular resource models that reduce environmental
+                impact and restore the blue forest for future generations.
+              </p>
+            </div>
+          </div>
+          <div
+            class="group flex gap-6 p-8 bg-ocean-900/30 border border-ocean-800/30 rounded-sm hover:border-teal-500/20 transition-all duration-500"
+          >
+            <Icon
+              name="lucide:zap"
+              class="w-6 h-6 text-teal-400 shrink-0 mt-1"
+            />
+            <div>
+              <h3 class="font-display text-xl text-white mb-2">
+                Innovative Growth
+              </h3>
+              <p class="text-ocean-400 text-sm leading-relaxed">
+                Through cutting-edge technology and innovative methods, we
+                transform marine challenges into valuable resources, driving
+                sustainable growth within the blue economy.
+              </p>
+            </div>
+          </div>
+          <div
+            class="group flex gap-6 p-8 bg-ocean-900/30 border border-ocean-800/30 rounded-sm hover:border-teal-500/20 transition-all duration-500"
+          >
+            <Icon
+              name="lucide:arrow-right-left"
+              class="w-6 h-6 text-teal-400 shrink-0 mt-1"
+            />
+            <div>
+              <h3 class="font-display text-xl text-white mb-2">
+                Collaboration
+              </h3>
+              <p class="text-ocean-400 text-sm leading-relaxed">
+                Uniting forces across academia, voluntary organizations, local
+                communities and industry to drive transformative change and
+                ensure responsible resource use.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-16 md:gap-24 items-center mt-24">
+          <div class="reveal relative">
+            <div class="aspect-[4/5] rounded-sm overflow-hidden">
+              <Image
+                src={kelpDiver}
+                alt="Diver exploring kelp forest restoration site"
+                class="w-full h-full object-cover"
+                widths={[480, 768, 1024]}
+              />
+            </div>
+            <div
+              class="absolute -top-6 -right-6 w-32 h-32 border border-teal-500/20 rounded-sm"
+            >
+            </div>
+          </div>
+          <div class="reveal" style="transition-delay: 0.15s">
+            <blockquote
+              class="font-display text-2xl md:text-3xl font-300 text-ocean-200 leading-relaxed mb-8 italic"
+            >
+              &ldquo;40% of kelp forests have disappeared in recent decades.
+              Marine Spark X supports restoration efforts to ensure regrowth in
+              Northern Norway.&rdquo;
+            </blockquote>
+            <div class="space-y-4">
+              <div class="flex items-start gap-4">
+                <div class="w-1.5 h-1.5 rounded-full bg-teal-400 mt-2 shrink-0">
+                </div>
+                <p class="text-ocean-300 text-sm">
+                  Restoring kelp forests along the Norwegian coastline
+                </p>
+              </div>
+              <div class="flex items-start gap-4">
+                <div class="w-1.5 h-1.5 rounded-full bg-teal-400 mt-2 shrink-0">
+                </div>
+                <p class="text-ocean-300 text-sm">
+                  Reducing pressure on wild fish stocks used in feed
+                </p>
+              </div>
+              <div class="flex items-start gap-4">
+                <div class="w-1.5 h-1.5 rounded-full bg-teal-400 mt-2 shrink-0">
+                </div>
+                <p class="text-ocean-300 text-sm">
+                  Supporting biodiversity recovery in arctic waters
+                </p>
+              </div>
+              <div class="flex items-start gap-4">
+                <div class="w-1.5 h-1.5 rounded-full bg-teal-400 mt-2 shrink-0">
+                </div>
+                <p class="text-ocean-300 text-sm">
+                  Zero-waste processing of harvested sea urchins
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Initiatives -->
+    <section class="py-28 md:py-36 relative overflow-hidden">
+      <div class="absolute inset-0">
+        <Image
+          src={fishCod}
+          alt=""
+          class="w-full h-full object-cover opacity-15"
+        />
+        <div class="absolute inset-0 bg-ocean-950/75"></div>
+      </div>
+      <div class="relative max-w-3xl mx-auto px-6 text-center reveal">
+        <p
+          class="text-teal-400 text-sm tracking-[0.3em] uppercase mb-4 font-medium"
+        >
+          Initiatives
+        </p>
+        <h2
+          class="font-display text-4xl md:text-5xl font-300 text-white mb-8 leading-tight"
+        >
+          Driving positive change
+        </h2>
+        <p class="text-ocean-300 leading-relaxed mb-10">
+          Marine Spark X is committed to driving positive change through a range
+          of forward-thinking initiatives and collaborations. We work with
+          partners across academia, non-profit organizations, and the business
+          sector to support healthier oceans, local communities, and more
+          sustainable industries.
+        </p>
+        <a
+          href="#contact"
+          class="inline-flex items-center gap-2 px-8 py-4 bg-teal-500/20 border border-teal-400/40 text-teal-100 rounded-sm hover:bg-teal-500/30 transition-all tracking-wider text-sm uppercase font-medium"
+        >
+          Get involved
+        </a>
+      </div>
+    </section>
+
+    <!-- Team -->
+    <section id="team" class="py-28 md:py-36 relative">
+      <div
+        class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,_var(--color-ocean-900)_0%,_var(--color-ocean-950)_70%)]"
+      >
+      </div>
+      <div class="relative max-w-5xl mx-auto px-6">
+        <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+          <p
+            class="text-teal-400 text-sm tracking-[0.3em] uppercase mb-4 font-medium"
+          >
+            Team
+          </p>
+          <h2
+            class="font-display text-4xl md:text-5xl font-300 text-white mb-6 leading-tight"
+          >
+            Our team
+          </h2>
+          <p class="text-ocean-400 leading-relaxed">
+            Our team holds a broad and diverse foundation of expertise, spanning
+            across multiple fields.
+          </p>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-12 reveal">
+          {
+            team.map((member) => (
+              <div class="text-center group">
+                <div class="w-28 h-28 mx-auto mb-4 rounded-full overflow-hidden border-2 border-ocean-700/30 group-hover:border-teal-500/40 transition-colors duration-500">
+                  <Image
+                    src={member.img}
+                    alt={member.name}
+                    class="w-full h-full object-cover object-top"
+                    width={224}
+                    height={224}
+                  />
+                </div>
+                <h3 class="font-display text-lg text-white">{member.name}</h3>
+                <p class="text-teal-400 text-xs tracking-wider uppercase mt-1">
+                  {member.role}
+                </p>
+                {member.email && (
+                  <a
+                    href={`mailto:${member.email}`}
+                    class="text-ocean-500 text-xs hover:text-ocean-300 transition-colors mt-1 block"
+                  >
+                    {member.email}
+                  </a>
+                )}
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- Partners -->
+    <section id="partners" class="py-24 md:py-28 relative">
+      <div class="absolute inset-0 bg-ocean-950"></div>
+      <div class="relative max-w-5xl mx-auto px-6 text-center reveal">
+        <p
+          class="text-teal-400 text-sm tracking-[0.3em] uppercase mb-4 font-medium"
+        >
+          Partners
+        </p>
+        <h2
+          class="font-display text-3xl md:text-4xl font-300 text-white mb-6 leading-tight"
+        >
+          Our partners
+        </h2>
+        <p
+          class="text-ocean-400 leading-relaxed max-w-2xl mx-auto mb-14 text-sm"
+        >
+          Marine Spark X collaborates with a wide network of partners from
+          academia, non-profit organizations, and the business sector.
+        </p>
+        <div
+          class="flex flex-wrap items-center justify-center gap-x-14 gap-y-6 opacity-50 hover:opacity-80 transition-opacity duration-700"
+        >
+          <span class="text-ocean-300 font-display text-xl tracking-wide"
+            >Akvaplan-niva</span
+          >
+          <span class="text-ocean-300 font-display text-xl tracking-wide"
+            >UiT</span
+          >
+          <span class="text-ocean-300 font-display text-xl tracking-wide"
+            >Nofima</span
+          >
+          <span class="text-ocean-300 font-display text-xl tracking-wide"
+            >KUPA</span
+          >
+          <span class="text-ocean-300 font-display text-xl tracking-wide"
+            >MABIT</span
+          >
+          <span class="text-ocean-300 font-display text-xl tracking-wide"
+            >Ecopang</span
+          >
+          <span class="text-ocean-300 font-display text-xl tracking-wide"
+            >Royal Academy</span
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-28 md:py-36 relative">
+      <div
+        class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--color-ocean-900)_0%,_var(--color-ocean-950)_70%)]"
+      >
+      </div>
+      <div class="relative max-w-3xl mx-auto px-6 text-center reveal">
+        <h2
+          class="font-display text-4xl md:text-6xl font-300 text-white mb-6 leading-tight"
+        >
+          Stay updated
+        </h2>
+        <p class="text-ocean-300 leading-relaxed mb-4">
+          Follow Marine Spark X on social media and get in touch to learn more
+          about our work and partnership opportunities.
+        </p>
+        <p class="text-ocean-500 text-sm mb-10">
+          Framstredet 10, Troms&oslash; 9019, Norway &middot; +47 928 85 829
+        </p>
+        <div class="flex items-center justify-center gap-6 mb-12">
+          <a
+            href="https://www.linkedin.com/company/marinesparkx"
+            class="w-12 h-12 flex items-center justify-center border border-ocean-700 rounded-full hover:border-teal-400/50 hover:text-teal-300 transition-all"
+            aria-label="LinkedIn"
+          >
+            <Icon name="mdi:linkedin" class="w-5 h-5" />
+          </a>
+          <a
+            href="https://www.instagram.com/marinesparkx"
+            class="w-12 h-12 flex items-center justify-center border border-ocean-700 rounded-full hover:border-teal-400/50 hover:text-teal-300 transition-all"
+            aria-label="Instagram"
+          >
+            <Icon name="mdi:instagram" class="w-5 h-5" />
+          </a>
+          <a
+            href="https://www.facebook.com/marinesparkx"
+            class="w-12 h-12 flex items-center justify-center border border-ocean-700 rounded-full hover:border-teal-400/50 hover:text-teal-300 transition-all"
+            aria-label="Facebook"
+          >
+            <Icon name="mdi:facebook" class="w-5 h-5" />
+          </a>
+        </div>
+        <a
+          href="mailto:contact@marinesparkx.com"
+          class="inline-flex items-center gap-2 px-8 py-4 bg-teal-500/20 border border-teal-400/40 text-teal-100 rounded-sm hover:bg-teal-500/30 transition-all tracking-wider text-sm uppercase font-medium"
+        >
+          Get in touch
+        </a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-ocean-800/50 py-12">
+      <div class="max-w-7xl mx-auto px-6">
+        <div
+          class="flex flex-col md:flex-row items-center justify-between gap-6"
+        >
+          <a href="/" class="w-32">
+            <Image
+              src={logo}
+              alt="Marine Spark X"
+              class="w-full h-auto brightness-0 invert opacity-40"
+            />
+          </a>
+          <p class="text-ocean-600 text-sm">
+            &copy; 2026 Marine Spark X AS. All rights reserved.
+          </p>
+          <div class="flex gap-6 text-sm text-ocean-500">
+            <a href="#" class="hover:text-ocean-300 transition-colors"
+              >Privacy</a
+            >
+            <a href="#" class="hover:text-ocean-300 transition-colors">Terms</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const nav = document.getElementById("nav");
+      const navInner = nav?.querySelector("div");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 50) {
+          nav.style.backgroundColor = "rgba(4, 15, 23, 0.95)";
+          nav.style.backdropFilter = "blur(12px)";
+          nav.style.borderBottom = "1px solid rgba(12, 46, 62, 0.5)";
+          navInner.style.paddingTop = "0.75rem";
+          navInner.style.paddingBottom = "0.75rem";
+        } else {
+          nav.style.backgroundColor = "transparent";
+          nav.style.backdropFilter = "none";
+          nav.style.borderBottom = "none";
+          navInner.style.paddingTop = "";
+          navInner.style.paddingBottom = "";
+        }
+      });
+
+      const toggle = document.getElementById("menu-toggle");
+      const menu = document.getElementById("mobile-menu");
+      const setNavBg = (on, instant = false) => {
+        if (instant) {
+          nav.style.transition = "none";
+          requestAnimationFrame(() => (nav.style.transition = ""));
+        }
+        if (on || window.scrollY > 50) {
+          nav.style.backgroundColor = "rgba(4, 15, 23, 0.95)";
+          nav.style.backdropFilter = "blur(12px)";
+        } else {
+          nav.style.backgroundColor = "";
+          nav.style.backdropFilter = "";
+        }
+      };
+      toggle?.addEventListener("click", () => {
+        menu?.classList.toggle("hidden");
+        setNavBg(!menu?.classList.contains("hidden"), true);
+      });
+      menu?.querySelectorAll("a").forEach((a) =>
+        a.addEventListener("click", () => {
+          menu?.classList.add("hidden");
+          setNavBg(false, true);
+        }),
+      );
+
+      const reveals = document.querySelectorAll(".reveal");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("revealed");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.1, rootMargin: "0px 0px -50px 0px" },
+      );
+      reveals.forEach((el) => observer.observe(el));
+    </script>
+  </body>
 </html>
