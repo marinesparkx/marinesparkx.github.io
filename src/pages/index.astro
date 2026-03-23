@@ -15,6 +15,7 @@ import teamElias from "../assets/images/team-elias.jpg";
 import teamGustav from "../assets/images/team-gustav.png";
 import teamMaria from "../assets/images/team-maria.jpg";
 import teamPauline from "../assets/images/team-pauline.jpg";
+import partnerLogos from "../assets/images/partner-logos-all.png";
 
 const umamiId = import.meta.env.PUBLIC_UMAMI_ID;
 
@@ -97,7 +98,7 @@ const team = [
   <body class="bg-ocean-950 text-ocean-100 font-body antialiased">
     <!-- Navigation -->
     <nav
-      class="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
+      class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b border-transparent"
       id="nav"
     >
       <div
@@ -704,30 +705,12 @@ const team = [
           Marine Spark X collaborates with a wide network of partners from
           academia, non-profit organizations, and the business sector.
         </p>
-        <div
-          class="flex flex-wrap items-center justify-center gap-x-14 gap-y-6 opacity-50 hover:opacity-80 transition-opacity duration-700"
-        >
-          <span class="text-ocean-300 font-display text-xl tracking-wide"
-            >Akvaplan-niva</span
-          >
-          <span class="text-ocean-300 font-display text-xl tracking-wide"
-            >UiT</span
-          >
-          <span class="text-ocean-300 font-display text-xl tracking-wide"
-            >Nofima</span
-          >
-          <span class="text-ocean-300 font-display text-xl tracking-wide"
-            >KUPA</span
-          >
-          <span class="text-ocean-300 font-display text-xl tracking-wide"
-            >MABIT</span
-          >
-          <span class="text-ocean-300 font-display text-xl tracking-wide"
-            >Ecopang</span
-          >
-          <span class="text-ocean-300 font-display text-xl tracking-wide"
-            >Royal Academy</span
-          >
+        <div class="invert opacity-70 hover:opacity-90 transition-opacity duration-700">
+          <Image
+            src={partnerLogos}
+            alt="Partner logos: Akvaplan-niva, Troms fylkeskommune, KUPA, MABIT, Aminor, Nofima, UiT, Innovasjon Norge, Arctic Accelerator, Ungt Entreprenørskap, KIME AKVA, SALT, ICE, Ecopang"
+            class="w-full max-w-3xl mx-auto h-auto"
+          />
         </div>
       </div>
     </section>
@@ -816,13 +799,13 @@ const team = [
         if (window.scrollY > 50) {
           nav.style.backgroundColor = "rgba(4, 15, 23, 0.95)";
           nav.style.backdropFilter = "blur(12px)";
-          nav.style.borderBottom = "1px solid rgba(12, 46, 62, 0.5)";
+          nav.style.borderColor = "rgba(12, 46, 62, 0.5)";
           navInner.style.paddingTop = "0.75rem";
           navInner.style.paddingBottom = "0.75rem";
         } else {
           nav.style.backgroundColor = "transparent";
           nav.style.backdropFilter = "none";
-          nav.style.borderBottom = "none";
+          nav.style.borderColor = "transparent";
           navInner.style.paddingTop = "";
           navInner.style.paddingBottom = "";
         }
