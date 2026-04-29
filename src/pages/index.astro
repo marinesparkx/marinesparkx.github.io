@@ -73,7 +73,10 @@ const team = [
       property="og:description"
       content="Sustainable nutritional supplements from sea urchins. Restoring kelp forests along the Norwegian coast."
     />
-    <meta property="og:image" content="https://marinesparkx.github.io/og-image.jpg" />
+    <meta
+      property="og:image"
+      content="https://marinesparkx.github.io/og-image.jpg"
+    />
     <meta property="og:url" content="https://marinesparkx.github.io" />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -84,15 +87,17 @@ const team = [
       rel="stylesheet"
     />
     <title>Marine Spark X — Revolutionizing Marine Resources</title>
-    {umamiId && (
-      <script
-        is:inline
-        defer
-        src="https://cloud.umami.is/script.js"
-        data-website-id={umamiId}
-        data-domains="marinesparkx.com,www.marinesparkx.com"
-      ></script>
-    )}
+    {
+      umamiId && (
+        <script
+          is:inline
+          defer
+          src="https://cloud.umami.is/script.js"
+          data-website-id={umamiId}
+          data-domains="marinesparkx.com,www.marinesparkx.com"
+        />
+      )
+    }
   </head>
 
   <body class="bg-ocean-950 text-ocean-100 font-body antialiased">
@@ -705,7 +710,9 @@ const team = [
           Marine Spark X collaborates with a wide network of partners from
           academia, non-profit organizations, and the business sector.
         </p>
-        <div class="invert opacity-70 hover:opacity-90 transition-opacity duration-700">
+        <div
+          class="invert opacity-70 hover:opacity-90 transition-opacity duration-700"
+        >
           <Image
             src={partnerLogos}
             alt="Partner logos: Akvaplan-niva, Troms fylkeskommune, KUPA, MABIT, Aminor, Nofima, UiT, Innovasjon Norge, Arctic Accelerator, Ungt Entreprenørskap, KIME AKVA, SALT, ICE, Ecopang"
@@ -793,8 +800,8 @@ const team = [
     </footer>
 
     <script>
-      const nav = document.getElementById("nav");
-      const navInner = nav?.querySelector("div");
+      const nav = document.getElementById("nav") as HTMLElement;
+      const navInner = nav.querySelector("div") as HTMLElement;
       window.addEventListener("scroll", () => {
         if (window.scrollY > 50) {
           nav.style.backgroundColor = "rgba(4, 15, 23, 0.95)";
@@ -813,7 +820,7 @@ const team = [
 
       const toggle = document.getElementById("menu-toggle");
       const menu = document.getElementById("mobile-menu");
-      const setNavBg = (on, instant = false) => {
+      const setNavBg = (on: boolean, instant = false) => {
         if (instant) {
           nav.style.transition = "none";
           requestAnimationFrame(() => (nav.style.transition = ""));
