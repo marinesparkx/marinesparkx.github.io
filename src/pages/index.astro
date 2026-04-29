@@ -8,7 +8,6 @@ import seaUrchin from "../assets/images/sea-urchin.png";
 import fishCod from "../assets/images/fish-cod.jpg";
 import kelpDiver from "../assets/images/kelp-diver.jpeg";
 import oceanSurface from "../assets/images/ocean-surface.jpeg";
-import urchinMeal from "../assets/images/urchin-meal-product.png";
 import teamJohan from "../assets/images/team-johan.jpg";
 import teamMartin from "../assets/images/team-martin.jpg";
 import teamElias from "../assets/images/team-elias.jpg";
@@ -16,6 +15,7 @@ import teamGustav from "../assets/images/team-gustav.png";
 import teamMaria from "../assets/images/team-maria.jpg";
 import teamPauline from "../assets/images/team-pauline.jpg";
 import partnerLogos from "../assets/images/partner-logos-all.png";
+import arcticUniProduct from "../assets/images/arcticuni-product.png";
 
 const umamiId = import.meta.env.PUBLIC_UMAMI_ID;
 
@@ -196,13 +196,6 @@ const team = [
           Think Blue,<br />
           <em class="text-teal-200">Think Green</em>
         </h1>
-        <p
-          class="text-ocean-200 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-10 font-light animate-fade-up"
-          style="animation-delay: 0.6s"
-        >
-          Enhancing health &mdash; on the ocean&rsquo;s terms. Turning invasive
-          sea urchins into sustainable value for aquaculture.
-        </p>
         <div
           class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-up"
           style="animation-delay: 0.8s"
@@ -234,7 +227,7 @@ const team = [
             <p
               class="font-display text-4xl md:text-5xl font-300 text-white mb-2"
             >
-              80B+
+              100B+
             </p>
             <p class="text-ocean-400 text-sm tracking-wide">
               Sea urchins along the Norwegian coast
@@ -328,8 +321,8 @@ const team = [
       </div>
     </section>
 
-    <!-- Product -->
-    <section id="product" class="py-28 md:py-36 relative overflow-hidden">
+    <!-- Products -->
+    <section id="product" class="pt-28 md:pt-36 pb-12 md:pb-16 relative overflow-hidden">
       <div class="absolute inset-0">
         <Image
           src={oceanSurface}
@@ -339,22 +332,22 @@ const team = [
         <div class="absolute inset-0 bg-ocean-950/85"></div>
       </div>
       <div class="relative max-w-7xl mx-auto px-6">
-        <div class="grid md:grid-cols-2 gap-16 md:gap-24 items-center">
-          <div class="reveal flex justify-center">
-            <div class="relative">
-              <Image
-                src={urchinMeal}
-                alt="UrchinEcoMeal product — fine powder supplement"
-                class="w-72 md:w-96 h-auto drop-shadow-2xl"
-                widths={[384, 480]}
-              />
-              <div
-                class="absolute -inset-8 bg-teal-500/5 rounded-full blur-3xl -z-10"
-              >
-              </div>
-            </div>
-          </div>
-          <div class="reveal" style="transition-delay: 0.15s">
+        <div class="text-center max-w-3xl mx-auto mb-20 reveal">
+          <p
+            class="text-teal-400 text-sm tracking-[0.3em] uppercase mb-4 font-medium"
+          >
+            Products
+          </p>
+          <h2
+            class="font-display text-4xl md:text-5xl font-300 text-white leading-tight"
+          >
+            Our products
+          </h2>
+        </div>
+
+        <!-- ArcticUNI -->
+        <div class="grid md:grid-cols-2 gap-16 md:gap-24 items-center mb-28">
+          <div class="reveal">
             <p
               class="text-teal-400 text-sm tracking-[0.3em] uppercase mb-4 font-medium"
             >
@@ -363,23 +356,21 @@ const team = [
             <h2
               class="font-display text-4xl md:text-5xl font-300 text-white mb-3 leading-tight"
             >
-              UrchinEcoMeal
+              ArcticUNI
             </h2>
             <p class="text-teal-300/70 text-sm italic mb-8 font-display">
-              Enhancing health &mdash; on the ocean&rsquo;s terms
+              Premium Marine Calcium
             </p>
             <p class="text-ocean-300 leading-relaxed mb-6">
-              UrchinEcoMeal is a natural and sustainable dietary supplement
-              developed from the green sea urchin (<em class="text-ocean-200"
-                >Strongylocentrotus droebachiensis</em
-              >). This product is rich in essential nutrients, including vital
-              vitamins and minerals, supporting a balanced and robust diet for
-              aquaculture.
+              ArcticUNI is a premium marine calcium supplement developed from
+              Arctic sea urchins from Northern Norway. It is positioned as a
+              naturally marine-derived source of calcium with trace minerals,
+              supported by full batch traceability and a consistent mineral
+              profile.
             </p>
             <p class="text-ocean-300 leading-relaxed mb-8">
-              By utilizing green sea urchins, which naturally contain these
-              nutrients, UrchinEcoMeal provides a healthy and sustainable
-              supplement solution through advanced bioconversion technologies.
+              ArcticUNI is built for premium supplement markets where origin,
+              quality, and product credibility matter.
             </p>
             <a
               href="#contact"
@@ -392,46 +383,63 @@ const team = [
               />
             </a>
           </div>
+          <div
+            class="reveal flex justify-center"
+            style="transition-delay: 0.15s"
+          >
+            <div class="relative">
+              <Image
+                src={arcticUniProduct}
+                alt="ArcticUNI — Premium Marine Calcium Supplement"
+                class="w-72 md:w-96 h-auto drop-shadow-2xl"
+                widths={[384, 480]}
+              />
+              <div
+                class="absolute -inset-8 bg-teal-500/5 rounded-full blur-3xl -z-10"
+              >
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div class="grid md:grid-cols-3 gap-8 mt-24 reveal">
-          <div
-            class="group p-8 bg-ocean-900/40 border border-ocean-800/40 rounded-sm hover:border-teal-500/30 transition-all duration-500"
-          >
-            <Icon
-              name="lucide:flask-conical"
-              class="w-8 h-8 mb-6 text-teal-400"
-            />
-            <h3 class="font-display text-xl text-white mb-3">Bioconversion</h3>
-            <p class="text-ocean-400 text-sm leading-relaxed">
-              Advanced bioconversion technology transforms sea urchins into
-              high-value nutritional compounds for aquaculture feed.
+        <div class="border-t border-ocean-800/40 mb-28"></div>
+
+        <!-- UNI-Q -->
+        <div class="max-w-3xl reveal">
+            <p
+              class="text-teal-400 text-sm tracking-[0.3em] uppercase mb-4 font-medium"
+            >
+              Product
             </p>
-          </div>
-          <div
-            class="group p-8 bg-ocean-900/40 border border-ocean-800/40 rounded-sm hover:border-teal-500/30 transition-all duration-500"
-          >
-            <Icon name="lucide:sun" class="w-8 h-8 mb-6 text-teal-400" />
-            <h3 class="font-display text-xl text-white mb-3">
-              Natural Carotenoids
-            </h3>
-            <p class="text-ocean-400 text-sm leading-relaxed">
-              Rich in natural carotenoids, essential minerals, and vitamins that
-              promote optimal health in farmed fish.
+            <h2
+              class="font-display text-4xl md:text-5xl font-300 text-white mb-3 leading-tight"
+            >
+              UNI-Q
+            </h2>
+            <p class="text-teal-300/70 text-sm italic mb-8 font-display">
+              Kelomic Fluid
             </p>
-          </div>
-          <div
-            class="group p-8 bg-ocean-900/40 border border-ocean-800/40 rounded-sm hover:border-teal-500/30 transition-all duration-500"
-          >
-            <Icon name="lucide:recycle" class="w-8 h-8 mb-6 text-teal-400" />
-            <h3 class="font-display text-xl text-white mb-3">
-              Circular Economy
-            </h3>
-            <p class="text-ocean-400 text-sm leading-relaxed">
-              Every sea urchin harvested helps restore kelp forests while
-              creating sustainable value for the aquaculture industry.
+            <p class="text-ocean-300 leading-relaxed mb-6">
+              UNI-Q is a sea-urchin-derived coelomic fluid developed as a
+              high-value marine bioactive. Early testing has shown encouraging
+              antibacterial activity, and the product is now being advanced
+              toward formulation and coatings-relevant applications.
             </p>
-          </div>
+            <p class="text-ocean-300 leading-relaxed mb-8">
+              Current work is focused on stability, fraction definition, and
+              broader testing to support partner evaluation and the next stage
+              of development.
+            </p>
+            <a
+              href="#contact"
+              class="inline-flex items-center gap-2 text-teal-300 text-sm tracking-wider uppercase hover:text-teal-200 transition-colors group"
+            >
+              Contact for more information
+              <Icon
+                name="lucide:arrow-right"
+                class="w-4 h-4 transition-transform group-hover:translate-x-1"
+              />
+            </a>
         </div>
       </div>
     </section>
@@ -653,33 +661,43 @@ const team = [
             across multiple fields.
           </p>
         </div>
-        <div class="grid grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-12 reveal">
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-14 reveal">
           {
-            team.map((member) => (
-              <div class="text-center group">
-                <div class="w-28 h-28 mx-auto mb-4 rounded-full overflow-hidden border-2 border-ocean-700/30 group-hover:border-teal-500/40 transition-colors duration-500">
-                  <Image
-                    src={member.img}
-                    alt={member.name}
-                    class="w-full h-full object-cover object-top"
-                    width={224}
-                    height={224}
-                  />
+            team.map((member) =>
+              member.placeholder ? (
+                <div class="text-center group">
+                  <div class="w-36 h-36 mx-auto mb-4 rounded-full border-2 border-dashed border-ocean-700/60 flex items-center justify-center bg-ocean-900/40">
+                    <Icon name="lucide:user" class="w-10 h-10 text-ocean-700" />
+                  </div>
+                  <p class="text-ocean-700 text-sm">[Team member]</p>
+                  <p class="text-ocean-800 text-xs mt-1">[Placeholder]</p>
                 </div>
-                <h3 class="font-display text-lg text-white">{member.name}</h3>
-                <p class="text-teal-400 text-xs tracking-wider uppercase mt-1">
-                  {member.role}
-                </p>
-                {member.email && (
-                  <a
-                    href={`mailto:${member.email}`}
-                    class="text-ocean-500 text-xs hover:text-ocean-300 transition-colors mt-1 block"
-                  >
-                    {member.email}
-                  </a>
-                )}
-              </div>
-            ))
+              ) : (
+                <div class="text-center group">
+                  <div class="w-36 h-36 mx-auto mb-4 rounded-full overflow-hidden border-2 border-ocean-700/30 group-hover:border-teal-500/40 transition-colors duration-500">
+                    <Image
+                      src={member.img}
+                      alt={member.name}
+                      class="w-full h-full object-cover object-top"
+                      width={288}
+                      height={288}
+                    />
+                  </div>
+                  <h3 class="font-display text-lg text-white">{member.name}</h3>
+                  <p class="text-teal-400 text-xs tracking-wider uppercase mt-1">
+                    {member.role}
+                  </p>
+                  {member.email && (
+                    <a
+                      href={`mailto:${member.email}`}
+                      class="text-ocean-500 text-xs hover:text-ocean-300 transition-colors mt-1 block"
+                    >
+                      {member.email}
+                    </a>
+                  )}
+                </div>
+              )
+            )
           }
         </div>
       </div>
@@ -736,7 +754,7 @@ const team = [
         </p>
         <div class="flex items-center justify-center gap-6 mb-12">
           <a
-            href="https://www.linkedin.com/company/marinesparkx"
+            href="https://www.linkedin.com/company/marine-spark-x/posts/?feedView=all"
             class="w-12 h-12 flex items-center justify-center border border-ocean-700 rounded-full hover:border-teal-400/50 hover:text-teal-300 transition-all"
             aria-label="LinkedIn"
           >
