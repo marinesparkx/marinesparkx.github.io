@@ -5,6 +5,9 @@
   "engines": {
     "node": ">=22.12.0"
   },
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
@@ -16,6 +19,7 @@
     "@iconify-json/mdi": "^1.2.3",
     "@tailwindcss/vite": "^4.2.2",
     "astro": "^6.0.8",
+    "astro-click-to-ai": "*",
     "astro-icon": "^1.1.5",
     "tailwindcss": "^4.2.2"
   },
