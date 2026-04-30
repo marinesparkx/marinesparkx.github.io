@@ -2,7 +2,7 @@
 import { defineConfig } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
 import icon from "astro-icon";
-import clickToAi from "./src/dev-toolbar/click-to-ai/integration.ts";
+import clickToAi from "astro-click-to-ai";
 
 // https://astro.build/config
 export default defineConfig({
