@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__claude_ai_higgsfield__balance",
+      "mcp__claude_ai_higgsfield__models_explore",
+      "Bash(cp \"C:\\\\Users\\\\gusta\\\\Projects\\\\ArcticUni_for_MSX\\\\Assets\\\\nano_banana_result.png\" \"C:\\\\Users\\\\gusta\\\\Projects\\\\marinesparkx.github.io\\\\src\\\\assets\\\\images\\\\arcticuni-product.png\")",
+      "Bash(cp \"C:\\\\Users\\\\gusta\\\\Projects\\\\ArcticUni_for_MSX\\\\Assets\\\\uniq_test_tube.png\" \"C:\\\\Users\\\\gusta\\\\Projects\\\\marinesparkx.github.io\\\\src\\\\assets\\\\images\\\\uniq-product.png\")"
+    ]
+  }
+}
